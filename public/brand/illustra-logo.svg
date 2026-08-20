@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 264 72" role="img" aria-labelledby="title">
+  <title id="title">Illustra</title>
+  <g fill="none" stroke="#08080D" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="7" cy="10" r="4.7" fill="#08080D" stroke="none"/>
+    <path d="M7 26v36M24 8v40c0 9 4 14 11 14M43 8v40c0 9 4 14 11 14M66 26v21c0 10 5 15 14 15s15-6 15-16V26M128 32c-4-5-10-7-16-6-7 1-11 5-10 10 1 4 5 6 12 8 9 2 14 4 14 10 0 5-5 9-13 9-7 0-12-2-16-7M147 12v36c0 9 4 14 12 14M137 27h23M172 62V26M172 40c1-9 7-14 16-14M236 45c0-11-7-19-18-19s-19 8-19 18 8 18 19 18 18-7 18-17M236 26v36"/>
+  </g>
+</svg>
