@@ -7,6 +7,7 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import { BrandLogo } from "@/components/brand/brand-logo";
 import { SectionLabel } from "@/components/brand/section-label";
 import { buttonVariants } from "@/components/ui/button";
+import { siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 export function Contact() {
@@ -26,13 +27,13 @@ export function Contact() {
             </p>
             <div className="mt-10 flex flex-col items-start gap-3 sm:flex-row sm:flex-wrap">
               <a
-                href="mailto:antonewtonquima@gmail.com"
+                href={`mailto:${siteConfig.email}`}
                 className={cn(
                   buttonVariants({ size: "lg" }),
                   "h-12 rounded-full px-6"
                 )}
               >
-                antonewtonquima@gmail.com
+                {siteConfig.email}
                 <HugeiconsIcon
                   icon={ArrowUpRight01Icon}
                   data-icon="inline-end"
@@ -40,7 +41,7 @@ export function Contact() {
                 />
               </a>
               <a
-                href="https://wa.me/244943670112"
+                href={siteConfig.whatsappUrl}
                 target="_blank"
                 rel="noreferrer"
                 className={cn(

@@ -1,6 +1,7 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Figtree, Geist_Mono } from "next/font/google";
 
+import { siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 import "./globals.css";
@@ -18,49 +19,71 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://illustra.site"),
+  metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Illustra — Estúdio digital de produtos",
-    template: "%s — Illustra",
+    default: siteConfig.title,
+    template: `%s | ${siteConfig.name}`,
   },
-  description:
-    "Estratégia, design e engenharia para transformar ideias em produtos digitais claros, úteis e impactantes.",
-  applicationName: "Illustra",
-  keywords: [
-    "design de produto",
-    "engenharia de software",
-    "desenvolvimento web",
-    "aplicações mobile",
-    "estúdio digital",
-  ],
-  authors: [{ name: "Illustra", url: "https://illustra.site" }],
-  creator: "Illustra",
-  publisher: "Illustra",
-  alternates: { canonical: "/" },
+  description: siteConfig.description,
+  applicationName: siteConfig.name,
+  keywords: [...siteConfig.keywords],
+  authors: [{ name: siteConfig.name, url: siteConfig.url }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
+  category: "technology",
+  alternates: {
+    canonical: "/",
+    languages: { "pt-AO": "/" },
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
     type: "website",
-    locale: "pt_AO",
+    locale: siteConfig.locale,
     url: "/",
-    siteName: "Illustra",
-    title: "Illustra — Estúdio digital de produtos",
-    description:
-      "Transformamos ideias em produtos digitais através de estratégia, design e engenharia.",
+    siteName: siteConfig.name,
+    title: siteConfig.title,
+    description: siteConfig.description,
   },
   twitter: {
-    card: "summary",
-    title: "Illustra — Estúdio digital de produtos",
-    description:
-      "Transformamos ideias em produtos digitais através de estratégia, design e engenharia.",
+    card: "summary_large_image",
+    title: siteConfig.title,
+    description: siteConfig.description,
   },
+};
+
+export const viewport: Viewport = {
+  colorScheme: "light dark",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f5f3ee" },
+    { media: "(prefers-color-scheme: dark)", color: "#08080d" },
+  ],
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
-      lang="pt"
+      lang={siteConfig.language}
       className={cn("h-full", figtree.variable, geistMono.variable)}
     >
-      <body className="flex min-h-full flex-col">{children}</body>
+      <body className="flex min-h-full flex-col">
+        <a
+          href="#conteudo"
+          className="fixed top-3 left-3 z-[100] -translate-y-20 rounded-full bg-brand-blue px-4 py-2 text-sm font-semibold text-white transition-transform focus:translate-y-0"
+        >
+          Saltar para o conteúdo
+        </a>
+        {children}
+      </body>
     </html>
   );
 }
