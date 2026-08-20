@@ -1,4 +1,7 @@
-import { ArrowUpRight01Icon } from "@hugeicons/core-free-icons";
+import {
+  ArrowUpRight01Icon,
+  WhatsappIcon,
+} from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 
 import { BrandLogo } from "@/components/brand/brand-logo";
@@ -21,20 +24,38 @@ export function Contact() {
               Conte-nos o desafio, o contexto e onde quer chegar. Nós ajudamos a
               transformar o próximo passo num produto claro e executável.
             </p>
-            <a
-              href="mailto:hello@illustra.site"
-              className={cn(
-                buttonVariants({ size: "lg" }),
-                "mt-10 h-12 rounded-full px-6"
-              )}
-            >
-              hello@illustra.site
-              <HugeiconsIcon
-                icon={ArrowUpRight01Icon}
-                data-icon="inline-end"
-                strokeWidth={1.8}
-              />
-            </a>
+            <div className="mt-10 flex flex-col items-start gap-3 sm:flex-row sm:flex-wrap">
+              <a
+                href="mailto:antonewtonquima@gmail.com"
+                className={cn(
+                  buttonVariants({ size: "lg" }),
+                  "h-12 rounded-full px-6"
+                )}
+              >
+                antonewtonquima@gmail.com
+                <HugeiconsIcon
+                  icon={ArrowUpRight01Icon}
+                  data-icon="inline-end"
+                  strokeWidth={1.8}
+                />
+              </a>
+              <a
+                href="https://wa.me/244943670112"
+                target="_blank"
+                rel="noreferrer"
+                className={cn(
+                  buttonVariants({ variant: "outline", size: "lg" }),
+                  "h-12 rounded-full bg-transparent px-6"
+                )}
+              >
+                <HugeiconsIcon
+                  icon={WhatsappIcon}
+                  data-icon="inline-start"
+                  strokeWidth={1.8}
+                />
+                WhatsApp · +244 943 670 112
+              </a>
+            </div>
           </div>
 
           <div className="brand-dot-grid relative hidden overflow-hidden border-l lg:block">
